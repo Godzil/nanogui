@@ -1,9 +1,9 @@
 [submodule "ext/nanovg"]
     path = ext/nanovg
-    url = https://github.com/wjakob/nanovg
+    url = https://github.com/memononen/nanovg.git
 [submodule "ext/glfw"]
     path = ext/glfw
-    url = https://github.com/wjakob/glfw
+    url = https://github.com/glfw/glfw
 [submodule "ext/eigen"]
     path = ext/eigen
     url = https://github.com/eigenteam/eigen-git-mirror.git
