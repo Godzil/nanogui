@@ -79,7 +79,7 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/ext/glfw" "ext_build/glfw")
-# Two targets have now been defined: `glfw_objects`, which will be merged into
+# Two targets have now been defined: `glfw3`, which will be merged into
 # NanoGUI at the end, and `glfw`.  The `glfw` target is the library itself
 # (e.g., libglfw.so), but can be skipped as we do not need to link against it
 # (because we merge `glfw_objects` into NanoGUI).  Skipping is required for
@@ -368,7 +368,7 @@ if (CMAKE_GENERATOR STREQUAL Xcode)
 else()
   add_library(nanogui ${NANOGUI_LIBRARY_TYPE}
     $<TARGET_OBJECTS:nanogui-obj>
-    $<TARGET_OBJECTS:glfw_objects>
+    $<TARGET_OBJECTS:glfw>
   )
 endif()
 
@@ -456,7 +456,7 @@ endif()
 if (NANOGUI_BUILD_PYTHON)
   # Need PIC code in libnanogui even when compiled as a static library
   set_target_properties(nanogui-obj PROPERTIES POSITION_INDEPENDENT_CODE ON)
-  set_target_properties(glfw_objects PROPERTIES POSITION_INDEPENDENT_CODE ON)
+  set_target_properties(glfw PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
   include_directories("ext/pybind11/include" ${PYTHON_INCLUDE_DIR})
   add_library(nanogui-python-obj OBJECT
